@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess AI Engine — Your Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Your Name — Mechatronics</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-hero">
+  <a href="index.html#projects" class="back-link">← All projects</a>
+  <div class="project-hero-meta">
+    <span class="project-hero-year">2025</span>
+    <span class="project-hero-tag">Software · AI</span>
+  </div>
+  <h1>Chess AI Engine</h1>
+  <p class="project-hero-summary">A chess engine built from classical search algorithms with machine learning evaluation functions. Designed for low-latency real-time play and tight integration with the physical chess cobot system.</p>
+  <div class="project-hero-tags">
+    <span class="project-tag">Python</span>
+    <span class="project-tag">Minimax / alpha-beta</span>
+    <span class="project-tag">ML evaluation</span>
+    <span class="project-tag">Real-time systems</span>
+    <span class="project-tag">Chess engine design</span>
+  </div>
+</div>
+
+<div class="project-body">
+
+  <div class="project-section reveal">
+    <h2>Overview</h2>
+    <p>Describe the motivation for building a custom engine rather than using an existing one (Stockfish, etc.) — was it about integration, learning, or constraints on the hardware? Give a brief overview of how the engine works at a high level.</p>
+    <p>Replace this placeholder text with real project details when you're ready to publish.</p>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Search algorithm</h2>
+    <p>Describe your implementation of minimax with alpha-beta pruning. What depth did you search to? Did you implement any extensions — iterative deepening, quiescence search, move ordering? What was the node throughput and typical response latency?</p>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Evaluation function</h2>
+    <p>Explain the position evaluation approach. What material and positional features did you use? How did you incorporate machine learning — was this a trained neural network, piece-square tables learned from a dataset, or something else? What data did you train on?</p>
+  </div>
+
+  <div class="specs-grid reveal">
+    <div class="spec-item"><div class="spec-label">Language</div><div class="spec-value">Python</div></div>
+    <div class="spec-item"><div class="spec-label">Search</div><div class="spec-value">Minimax + alpha-beta</div></div>
+    <div class="spec-item"><div class="spec-label">Evaluation</div><div class="spec-value">ML-augmented</div></div>
+    <div class="spec-item"><div class="spec-label">Search depth</div><div class="spec-value">Add details</div></div>
+    <div class="spec-item"><div class="spec-label">Response time</div><div class="spec-value">Add details</div></div>
+    <div class="spec-item"><div class="spec-label">Integration</div><div class="spec-value">Chess cobot system</div></div>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Integration with the cobot</h2>
+    <p>Describe the interface between the chess engine and the physical cobot. How did the engine receive the board state, decide on a move, and communicate back? What latency constraints did the robot impose on the engine?</p>
+    <p>See also: <a href="project-cobot.html" style="color: var(--accent);">Chess-Playing Cobot project →</a></p>
+  </div>
+
+  <div class="reveal">
+    <div class="img-placeholder" style="min-height:280px;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      Add architecture diagram or screenshot<br><span style="font-size:10px; opacity:0.6;">e.g. chess-ai-architecture.png</span>
+    </div>
+    <p class="img-caption">Engine architecture / system diagram</p>
+  </div>
+
+  <hr class="divider">
+  <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+    <a href="https://github.com/yourusername" target="_blank" class="btn-primary">View on GitHub</a>
+    <a href="index.html#projects" class="btn-secondary">← Back to projects</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Your Name</p>
+  <p>GitHub Pages</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

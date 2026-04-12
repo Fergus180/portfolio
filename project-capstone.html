@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone Project — Your Name</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Your Name — Mechatronics</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#experience">Experience</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="project-hero">
+  <a href="index.html#projects" class="back-link">← All projects</a>
+  <div class="project-hero-meta">
+    <span class="project-hero-year">2025</span>
+    <span class="project-hero-tag">Final Year Capstone</span>
+  </div>
+  <h1>Final Year Capstone Project</h1>
+  <p class="project-hero-summary">Year-long industry-partnered capstone project, covering the full engineering lifecycle from requirements and system design through to prototype build, testing, and documentation. Replace this with the actual project title and a one-paragraph summary when ready to publish.</p>
+  <div class="project-hero-tags">
+    <span class="project-tag">Systems design</span>
+    <span class="project-tag">Prototyping</span>
+    <span class="project-tag">Industry partner</span>
+    <span class="project-tag">Add more tags</span>
+  </div>
+</div>
+
+<div class="project-body">
+
+  <div class="project-section reveal">
+    <h2>Problem statement</h2>
+    <p>Describe the problem your industry partner needed solved, why it was worth solving, and any constraints or requirements that shaped the design brief.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="img-placeholder" style="min-height:320px;">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      Add hero project image<br><span style="font-size:10px; opacity:0.6;">e.g. capstone-hero.jpg</span>
+    </div>
+    <p class="img-caption">Add caption describing the image</p>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Design approach</h2>
+    <p>Describe the design process — how did you go from requirements to a concept, then to a working prototype? What alternatives did you consider and why did you choose the approach you did?</p>
+  </div>
+
+  <div class="specs-grid reveal">
+    <div class="spec-item"><div class="spec-label">Industry partner</div><div class="spec-value">Add partner name</div></div>
+    <div class="spec-item"><div class="spec-label">Duration</div><div class="spec-value">1 year</div></div>
+    <div class="spec-item"><div class="spec-label">Team size</div><div class="spec-value">Add details</div></div>
+    <div class="spec-item"><div class="spec-label">Key deliverable</div><div class="spec-value">Add details</div></div>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Outcome</h2>
+    <p>What did the final prototype achieve? What did testing show? What would you do differently?</p>
+  </div>
+
+  <div class="reveal">
+    <div class="img-grid-2">
+      <div class="img-placeholder" style="min-height:240px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Add prototype photo<br><span style="font-size:10px; opacity:0.6;">e.g. capstone-prototype.jpg</span>
+      </div>
+      <div class="img-placeholder" style="min-height:240px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Add results / testing photo<br><span style="font-size:10px; opacity:0.6;">e.g. capstone-testing.jpg</span>
+      </div>
+    </div>
+    <p class="img-caption">Prototype testing — [Add caption]</p>
+  </div>
+
+  <hr class="divider">
+  <a href="index.html#projects" class="btn-secondary">← Back to projects</a>
+
+</div>
+
+<footer>
+  <p>© 2026 Your Name</p>
+  <p>GitHub Pages</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
