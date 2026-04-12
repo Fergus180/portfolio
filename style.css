@@ -126,7 +126,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
 .contact-link-arrow { font-size: 13px; color: var(--ink-faint); }
 
 /* ── PROJECT PAGE ── */
-.project-hero { padding: 9rem 4rem 4rem; border-bottom: 1px solid var(--border); }
+.project-hero { padding: 9rem 4rem 4rem; border-bottom: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
 .back-link { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); text-decoration: none; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 0.4rem; margin-bottom: 2.5rem; transition: color 0.2s; }
 .back-link:hover { color: var(--accent); }
 .project-hero-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
@@ -137,7 +137,7 @@ footer p { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); }
 .project-hero-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; }
 .project-hero-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; }
 
-.project-body { padding: 4rem 4rem; max-width: 1200px; }
+.project-body { padding: 4rem 4rem; max-width: 1200px; margin: 0 auto; }
 
 /* image layouts */
 .img-full { width: 100%; border-radius: 3px; border: 1px solid var(--border); display: block; margin-bottom: 0.5rem; }
