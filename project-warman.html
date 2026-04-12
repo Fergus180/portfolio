@@ -24,6 +24,51 @@
     border: 1px solid var(--border);
     border-radius: 3px;
   }
+
+  .content-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-row .project-section {
+    margin-bottom: 0;
+  }
+
+  .content-row .project-section h2 + h2,
+  .content-row .project-section p + h2 {
+    margin-top: 2rem;
+  }
+
+  .row-media img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .stacked-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .row-caption {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 760px) {
+    .content-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
 </style>
 </head>
 <body>
@@ -60,63 +105,69 @@
 
 <div class="project-body">
 
-  <!-- Embedded video -->
-  <div class="reveal">
+  <div class="reveal" style="margin-bottom: 3.5rem;">
     <div class="video-wrap">
       <iframe src="https://www.youtube.com/embed/fq3YmXqyoZw" title="Warman 2024 robot run" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
     <p class="img-caption">Competition run — Warman international finals 2024</p>
   </div>
 
-  <div class="project-section reveal">
-    <h2>Overview</h2>
-    <p>The Warman Design and Build Challenge is a yearly international competition run by Engineers Australia for second-year mechatronics and mechanical engineering students. As team lead, I was personally responsible for the chassis, drivetrain, a custom 3D-printed worm-drive gearbox, the carbon fibre 900mm unfolding arm, and the electronics board.</p>
+  <!-- Overview + robot photos -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Overview</h2>
+      <p>The Warman Design and Build Challenge is a yearly international competition run by Engineers Australia for second-year mechatronics and mechanical engineering students. As team lead, I was personally responsible for the chassis, drivetrain, a custom 3D-printed worm-drive gearbox, the carbon fibre 900mm unfolding arm, and the electronics board.</p>
+      <h2>Design strategy</h2>
+      <p>The core principle was minimising degrees of freedom. Fewer actuators means fewer failure modes and simpler control. The final robot used just six actuators: two encoded DC gearmotors for drive, three servos for collection and deposit, and one stepper for the arm gearbox. A waterjet-cut tube-and-gusset chassis kept the structure stiff with a low centre of gravity.</p>
+    </div>
+    <div class="row-media">
+      <div class="stacked-imgs">
+        <img src="WARMAN1.jpg" alt="Completed robot">
+        <img src="WARMAN4.jpg" alt="Robot at international finals">
+      </div>
+      <p class="row-caption">Completed robot at the Warman international finals, UTS 2024</p>
+    </div>
   </div>
 
-  <div class="project-section reveal">
-    <h2>Design strategy</h2>
-    <p>The core principle was minimising degrees of freedom. Fewer actuators means fewer failure modes and simpler control. The final robot used just six actuators: two encoded DC gearmotors for drive, three servos for collection and deposit, and one stepper for the arm gearbox. A waterjet-cut tube-and-gusset chassis kept the structure stiff with a low centre of gravity.</p>
-  </div>
-
-  <div class="specs-grid reveal">
+  <!-- Specs grid -->
+  <div class="specs-grid reveal" style="margin-bottom: 3.5rem;">
     <div class="spec-item"><div class="spec-label">Controller</div><div class="spec-value">ESP32</div></div>
     <div class="spec-item"><div class="spec-label">Firmware</div><div class="spec-value">C++ / PlatformIO</div></div>
     <div class="spec-item"><div class="spec-label">Drive motors</div><div class="spec-value">2x encoded DC gearmotors</div></div>
     <div class="spec-item"><div class="spec-label">Arm actuation</div><div class="spec-value">NEMA 23 stepper</div></div>
     <div class="spec-item"><div class="spec-label">Arm gearbox</div><div class="spec-value">Custom 3D-printed worm drive</div></div>
-    <div class="spec-item"><div class="spec-label">Arm output torque</div><div class="spec-value">~24 Nm (theoretical)</div></div>
-    <div class="spec-item"><div class="spec-label">Arm reach</div><div class="spec-value">900 mm extended</div></div>
+    <div class="spec-item"><div class="spec-label">Arm output torque</div><div class="spec-value">~24Nm (theoretical)</div></div>
+    <div class="spec-item"><div class="spec-label">Arm reach</div><div class="spec-value">900mm extended</div></div>
     <div class="spec-item"><div class="spec-label">Arm deploy time</div><div class="spec-value">&lt;2 seconds</div></div>
     <div class="spec-item"><div class="spec-label">Chassis</div><div class="spec-value">Waterjet tube and gusset</div></div>
     <div class="spec-item"><div class="spec-label">Arm material</div><div class="spec-value">Carbon fibre, multisegment</div></div>
   </div>
 
-  <div class="project-section reveal">
-    <h2>Drivetrain and control</h2>
-    <p>Precise straight-line motion is critical when collecting balls from fixed positions autonomously. The drivetrain used cascaded PID with velocity and differential steering feedforward terms, tuned against 500+ empirically generated data points mapping PWM to measured velocity under load. The outer position loop driving an inner velocity loop gave consistent, repeatable moves with minimal overshoot at each pickup point.</p>
-  </div>
-
-  <div class="reveal">
-    <div class="img-grid-2">
-      <img src="WARMAN2.jpg" class="img-full" alt="Labelled SolidWorks CAD">
-      <img src="WARMAN3.jpg" class="img-full" alt="Exploded worm-drive gearbox">
+  <!-- Drivetrain text + CAD image -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Drivetrain and control</h2>
+      <p>Precise straight-line motion is critical when collecting balls from fixed positions autonomously. The drivetrain used cascaded PID with velocity and differential steering feedforward terms, tuned against 500+ empirically generated data points mapping PWM to measured velocity under load. The outer position loop driving an inner velocity loop gave consistent, repeatable moves with minimal overshoot at each pickup point.</p>
     </div>
-    <p class="img-caption">Labelled SolidWorks CAD and exploded view of worm-drive gearbox</p>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Arm and gearbox</h2>
-    <p>The arm deploys from stowed to 1 metre in under two seconds, then locks rigidly for ball collection. A custom 3D-printed worm-drive gearbox driven by a NEMA 23 stepper produces ~24 Nm output torque and propels the arm 160 degrees in just over a second. The worm gear self-locks in the extended position, eliminating the need for holding current. Carbon fibre segments snap and lock mechanically at full extension, so the entire deploy sequence runs open-loop from a single stepper command.</p>
-  </div>
-
-    <div class="reveal">
-    <div class="img-grid-2">
-      <img src="WARMAN1.jpg" class="img-full" alt="Completed Robot">
-      <img src="WARMAN4.jpg" class="img-full" alt="Robot Competeting at International Finals">
+    <div class="row-media">
+      <img src="WARMAN2.jpg" alt="Labelled SolidWorks CAD">
+      <p class="row-caption">Labelled SolidWorks CAD assembly</p>
     </div>
-    <p class="img-caption">Completed robot at the Warman international finals, UTS 2024</p>
   </div>
 
+  <!-- Arm text + gearbox image -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Arm and gearbox</h2>
+      <p>The arm deploys from stowed to 1m in under two seconds, then locks rigidly for ball collection. A custom 3D-printed worm-drive gearbox driven by a NEMA 23 stepper produces ~24Nm output torque and propels the arm 160 degrees in just over a second. The worm gear self-locks in the extended position, eliminating the need for holding current. Carbon fibre segments snap and lock mechanically at full extension, so the entire deploy sequence runs open-loop from a single stepper command.</p>
+    </div>
+    <div class="row-media">
+      <img src="WARMAN3.jpg" alt="Exploded worm-drive gearbox">
+      <p class="row-caption">Exploded view of the 3D-printed worm-drive gearbox</p>
+    </div>
+  </div>
+
+  <!-- Key skills -->
   <div class="project-section reveal">
     <h2>Key skills</h2>
     <ul>
