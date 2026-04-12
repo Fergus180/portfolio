@@ -147,7 +147,7 @@
   <div class="content-row reveal">
     <div class="project-section">
       <h2>Drivetrain and control</h2>
-      <p>Precise straight-line motion is critical when collecting balls from fixed positions autonomously. The drivetrain used cascaded PID with velocity and differential steering feedforward terms, tuned against 500+ empirically generated data points mapping PWM to measured velocity under load. The outer position loop driving an inner velocity loop gave consistent, repeatable moves with minimal overshoot at each pickup point.</p>
+      <p>Precise straight-line motion is critical when collecting balls from fixed positions autonomously. The drivetrain used cascaded PID with velocity and differential steering feedforward terms, tuned against 500+ empirically generated data points mapping PWM to measured velocity, braking, and differential steering under load. The outer position loop driving an inner velocity loop gave consistent, repeatable moves with minimal overshoot at each pickup point.</p>
     </div>
     <div class="row-media">
       <img src="WARMAN2.jpg" alt="Labelled SolidWorks CAD">
@@ -159,7 +159,7 @@
   <div class="content-row reveal">
     <div class="project-section">
       <h2>Arm and gearbox</h2>
-      <p>The arm deploys from stowed to 1m in under two seconds, then locks rigidly for ball collection. A custom 3D-printed worm-drive gearbox driven by a NEMA 23 stepper produces ~24Nm output torque and propels the arm 160 degrees in just over a second. The worm gear self-locks in the extended position, eliminating the need for holding current. Carbon fibre segments snap and lock mechanically at full extension, so the entire deploy sequence runs open-loop from a single stepper command.</p>
+      <p>The arm deploys from stowed to 1m in under two seconds, then locks rigidly for ball collection. A custom 3D-printed worm-drive gearbox driven by a NEMA 23 stepper produces ~24Nm output torque and propels the arm 160 degrees in just over a second. The arm locks in the extended position using pneumatic push to connect fittings.</p>
     </div>
     <div class="row-media">
       <img src="WARMAN3.jpg" alt="Exploded worm-drive gearbox">
