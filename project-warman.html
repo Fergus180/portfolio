@@ -3,16 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warman Challenge — Your Name</title>
+<title>Warman Challenge — Fergus Hudson</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    margin-bottom: 0.5rem;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Your Name — Mechatronics</a>
+  <a href="index.html" class="nav-logo">Fergus Hudson — Mechatronics</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#projects">Projects</a></li>
@@ -28,7 +45,7 @@
     <span class="project-hero-tag">Competition · International Finals</span>
   </div>
   <h1>Warman Design &amp; Build Challenge</h1>
-  <p class="project-hero-summary">Led a team of three representing UTS at the international Warman finals — one of 15 universities competing across Oceania. The 2024 challenge: autonomously collect and deposit six tennis balls from preset positions into a central hole as quickly as possible.</p>
+  <p class="project-hero-summary">Led a team of three representing UTS at the international Warman finals. The 2024 task: autonomously collect and deposit six tennis balls from preset positions as fast as possible, competing against 15 universities across Oceania.</p>
   <div class="project-hero-tags">
     <span class="project-tag">ESP32 / C++</span>
     <span class="project-tag">PlatformIO</span>
@@ -37,125 +54,99 @@
     <span class="project-tag">Waterjet chassis</span>
     <span class="project-tag">3D-printed gearbox</span>
     <span class="project-tag">Carbon fibre arm</span>
-    <span class="project-tag">Stepper motor</span>
     <span class="project-tag">Team lead</span>
-  </div>
-  <div class="project-hero-actions">
-    <a href="https://www.youtube.com/watch?v=fq3YmXqyoZw" target="_blank" class="btn-primary">Watch the run</a>
   </div>
 </div>
 
 <div class="project-body">
 
-  <div class="project-section reveal">
-    <h2>Overview</h2>
-    <p>The Warman Design &amp; Build Challenge is a yearly international competition run by Engineers Australia, targeted at second-year mechatronics and mechanical engineering students. In 2024, fifteen universities across the Oceania region competed. The task required building a robot that could navigate a fixed course, collect six tennis balls from preset positions, and deposit them into a central hole — as fast as possible.</p>
-    <p>As team lead, I was responsible for the overall design strategy as well as personally designing and building the chassis, drivetrain, a custom 3D-printed worm-drive gearbox, the carbon fibre 900mm unfolding arm, and the electronics board.</p>
+  <!-- Embedded video -->
+  <div class="reveal">
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/fq3YmXqyoZw" title="Warman 2024 robot run" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <p class="img-caption">Competition run — Warman international finals 2024</p>
   </div>
 
-  <!-- Robot overview photo -->
+  <div class="project-section reveal">
+    <h2>Overview</h2>
+    <p>The Warman Design and Build Challenge is a yearly international competition run by Engineers Australia for second-year mechatronics and mechanical engineering students. As team lead, I was personally responsible for the chassis, drivetrain, a custom 3D-printed worm-drive gearbox, the carbon fibre 900mm unfolding arm, and the electronics board.</p>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Design strategy</h2>
+    <p>The core principle was minimising degrees of freedom. Fewer actuators means fewer failure modes and simpler control. The final robot used just six actuators: two encoded DC gearmotors for drive, three servos for collection and deposit, and one stepper for the arm gearbox. A waterjet-cut tube-and-gusset chassis kept the structure stiff with a low centre of gravity.</p>
+  </div>
+
+  <div class="specs-grid reveal">
+    <div class="spec-item"><div class="spec-label">Controller</div><div class="spec-value">ESP32</div></div>
+    <div class="spec-item"><div class="spec-label">Firmware</div><div class="spec-value">C++ / PlatformIO</div></div>
+    <div class="spec-item"><div class="spec-label">Drive motors</div><div class="spec-value">2x encoded DC gearmotors</div></div>
+    <div class="spec-item"><div class="spec-label">Arm actuation</div><div class="spec-value">NEMA 23 stepper</div></div>
+    <div class="spec-item"><div class="spec-label">Arm gearbox</div><div class="spec-value">Custom 3D-printed worm drive</div></div>
+    <div class="spec-item"><div class="spec-label">Arm output torque</div><div class="spec-value">~24 Nm (theoretical)</div></div>
+    <div class="spec-item"><div class="spec-label">Arm reach</div><div class="spec-value">900 mm extended</div></div>
+    <div class="spec-item"><div class="spec-label">Arm deploy time</div><div class="spec-value">&lt;2 seconds</div></div>
+    <div class="spec-item"><div class="spec-label">Chassis</div><div class="spec-value">Waterjet tube and gusset</div></div>
+    <div class="spec-item"><div class="spec-label">Arm material</div><div class="spec-value">Carbon fibre, multisegment</div></div>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Drivetrain and control</h2>
+    <p>Precise straight-line motion is critical when collecting balls from fixed positions autonomously. The drivetrain used cascaded PID with velocity and differential steering feedforward terms, tuned against 500+ empirically generated data points mapping PWM to measured velocity under load. The outer position loop driving an inner velocity loop gave consistent, repeatable moves with minimal overshoot at each pickup point.</p>
+  </div>
+
   <div class="reveal">
     <div class="img-grid-2">
       <div class="img-placeholder" style="min-height:260px;">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add robot photo here<br><span style="font-size:10px; opacity:0.6;">e.g. warman-robot-front.jpg</span>
+        <img src="WARMAN2.jpg" class="img-full" alt="...">
       </div>
       <div class="img-placeholder" style="min-height:260px;">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add robot photo here<br><span style="font-size:10px; opacity:0.6;">e.g. warman-robot-side.jpg</span>
+        <img src="WARMAN3.jpg" class="img-full" alt="...">
+      </div>
+    </div>
+    <p class="img-caption">Labelled SolidWorks CAD and exploded view of worm-drive gearbox</p>
+  </div>
+
+  <div class="project-section reveal">
+    <h2>Arm and gearbox</h2>
+    <p>The arm deploys from stowed to 1 metre in under two seconds, then locks rigidly for ball collection. A custom 3D-printed worm-drive gearbox driven by a NEMA 23 stepper produces ~24 Nm output torque and propels the arm 160 degrees in just over a second. The worm gear self-locks in the extended position, eliminating the need for holding current. Carbon fibre segments snap and lock mechanically at full extension, so the entire deploy sequence runs open-loop from a single stepper command.</p>
+  </div>
+
+  <div class="reveal">
+    <div class="img-grid-2">
+      <div class="img-placeholder" style="min-height:280px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Add robot photo<br><span style="font-size:10px; opacity:0.6;">e.g. warman-robot-front.jpg</span>
+      </div>
+      <div class="img-placeholder" style="min-height:280px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        Add competition photo<br><span style="font-size:10px; opacity:0.6;">e.g. warman-competition-day.jpg</span>
       </div>
     </div>
     <p class="img-caption">Completed robot at the Warman international finals, UTS 2024</p>
   </div>
 
   <div class="project-section reveal">
-    <h2>Design strategy</h2>
-    <p>The core design philosophy was to minimise degrees of freedom. Every additional actuator adds complexity, potential failure modes, and control overhead. The resulting robot used just six actuators in total: two encoded DC gearmotors for the drivetrain, three servos for ball collection and deposit mechanisms, and one stepper motor to drive the arm gearbox.</p>
-    <p>This constraint-first thinking shaped every subsystem decision — from the choice of a fixed-geometry arm (rather than a multi-segment articulated one) to the waterjet-cut tube-and-gusset chassis construction that prioritised stiffness and a low centre of gravity over flexibility.</p>
-  </div>
-
-  <div class="specs-grid reveal">
-    <div class="spec-item"><div class="spec-label">Controller</div><div class="spec-value">ESP32</div></div>
-    <div class="spec-item"><div class="spec-label">Firmware</div><div class="spec-value">C++ / PlatformIO</div></div>
-    <div class="spec-item"><div class="spec-label">Drive motors</div><div class="spec-value">2× encoded DC gearmotors</div></div>
-    <div class="spec-item"><div class="spec-label">Arm actuation</div><div class="spec-value">NEMA 23 stepper</div></div>
-    <div class="spec-item"><div class="spec-label">Arm gearbox</div><div class="spec-value">Custom 3D-printed worm drive</div></div>
-    <div class="spec-item"><div class="spec-label">Arm output torque</div><div class="spec-value">~24 Nm (theoretical)</div></div>
-    <div class="spec-item"><div class="spec-label">Arm reach</div><div class="spec-value">900 mm extended</div></div>
-    <div class="spec-item"><div class="spec-label">Arm deploy time</div><div class="spec-value">&lt;2 seconds</div></div>
-    <div class="spec-item"><div class="spec-label">Chassis construction</div><div class="spec-value">Waterjet tube &amp; gusset</div></div>
-    <div class="spec-item"><div class="spec-label">Arm material</div><div class="spec-value">Carbon fibre (multisegment)</div></div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Drivetrain &amp; control</h2>
-    <p>Accurate, repeatable straight-line motion is critical in a timed autonomous task where the robot must collect balls from fixed positions. The drivetrain used closed-loop cascaded PID control with velocity and differential steering feedforward terms.</p>
-    <p>Rather than relying on a theoretical motor model, I generated over 500 empirical data points mapping PWM input to measured velocity under various load conditions. This dataset was used to tune the feedforward parameters, giving the robot consistent and predictable motion from the first run.</p>
-    <p>The cascaded structure — an outer position loop driving an inner velocity loop — allowed precise point-to-point moves with controlled deceleration and near-zero steady-state error, minimising time lost to overshoot or correction at each ball pickup position.</p>
-  </div>
-
-  <!-- CAD / exploded view -->
-  <div class="reveal">
-    <div class="img-grid-2">
-      <div class="img-placeholder" style="min-height:280px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add CAD exploded view<br><span style="font-size:10px; opacity:0.6;">e.g. warman-cad-exploded.png</span>
-      </div>
-      <div class="img-placeholder" style="min-height:280px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add gearbox CAD / photo<br><span style="font-size:10px; opacity:0.6;">e.g. warman-gearbox.png</span>
-      </div>
-    </div>
-    <p class="img-caption">SolidWorks CAD — exploded view and worm-drive gearbox detail</p>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Arm &amp; gearbox</h2>
-    <p>The arm needed to extend from a compact stowed configuration to a 1-metre reach in under two seconds, lock rigidly for ball collection, then retract — all reliably, repeatably, and without software complexity.</p>
-    <p>A custom worm-drive gearbox was 3D-printed and driven by a NEMA 23 stepper motor, producing a theoretical output torque of 24 Nm — sufficient to propel the arm 160 degrees in just over a second. The worm gear's self-locking property meant the arm held its extended position without holding current, reducing thermal load on the driver.</p>
-    <p>The arm itself was fabricated from carbon fibre in a multi-segment hinged configuration with mechanical locking pivots. Hinges snap and lock at full extension, providing a rigid structure without additional actuation. The whole deploy sequence — unfold, lock, collect — runs open-loop from a single stepper command.</p>
-  </div>
-
-  <!-- Arm deployment photo -->
-  <div class="reveal">
-    <div class="img-placeholder" style="min-height:340px;">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      Add arm deployment photo or annotated diagram<br><span style="font-size:10px; opacity:0.6;">e.g. warman-arm-extended.jpg</span>
-    </div>
-    <p class="img-caption">Carbon fibre arm fully deployed at 1 m reach during a test run</p>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Key skills developed</h2>
+    <h2>Key skills</h2>
     <ul>
-      <li>Practical control systems — empirical tuning of cascaded PID and feedforward terms for DC motor drivetrain</li>
-      <li>Debugging and iterating on embedded mechatronic hardware under competition time pressure</li>
-      <li>Component selection and procurement across mechanical, electrical, and motion control domains</li>
-      <li>CAD with a strong design-for-manufacturing focus, particularly for FDM 3D printing</li>
-      <li>Team leadership — task delegation, project management, and keeping a three-person team on schedule</li>
+      <li>Empirical tuning of cascaded PID and feedforward control for a DC motor drivetrain</li>
+      <li>CAD with a design-for-manufacturing focus for FDM 3D printing</li>
+      <li>Debugging embedded mechatronic hardware under competition pressure</li>
+      <li>Component selection and procurement across mechanical, electrical, and motion control</li>
+      <li>Team leadership and project management across a three-person team</li>
     </ul>
   </div>
 
-  <!-- Competition / presentation photo -->
-  <div class="reveal">
-    <div class="img-placeholder" style="min-height:300px;">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      Add competition / presentation photo<br><span style="font-size:10px; opacity:0.6;">e.g. warman-competition-day.jpg</span>
-    </div>
-    <p class="img-caption">Warman international finals — UTS booth and robot on track</p>
-  </div>
-
   <hr class="divider">
-
-  <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-    <a href="https://www.youtube.com/watch?v=fq3YmXqyoZw" target="_blank" class="btn-primary">Watch the run</a>
-    <a href="index.html#projects" class="btn-secondary">← Back to projects</a>
-  </div>
+  <a href="index.html#projects" class="btn-secondary">← Back to projects</a>
 
 </div>
 
 <footer>
-  <p>© 2026 Your Name</p>
+  <p>© 2026 Fergus Hudson</p>
   <p>GitHub Pages</p>
 </footer>
 
