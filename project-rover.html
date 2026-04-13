@@ -10,6 +10,54 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+  /* Hero with background image */
+  .project-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('teamphoto.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    z-index: 0;
+  }
+
+  /* Fade: transparent on the right, solid page colour on the left where text is */
+  .project-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #f4f5f3 38%,
+      rgba(244, 245, 243, 0.85) 55%,
+      rgba(244, 245, 243, 0.2) 100%
+    );
+  }
+
+  /* Also fade the bottom edge into the page */
+  .project-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      #f4f5f3 100%
+    );
+    z-index: 1;
+  }
+
+  /* All hero content sits above the background */
+  .project-hero > *:not(.project-hero-bg) {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Content-row styles */
   .content-row {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -68,6 +116,14 @@
     .img-grid-3-local {
       grid-template-columns: 1fr 1fr;
     }
+    /* On mobile fade the image from top instead */
+    .project-hero-bg::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(244, 245, 243, 0.3) 0%,
+        #f4f5f3 70%
+      );
+    }
   }
 </style>
 </head>
@@ -84,6 +140,7 @@
 </nav>
 
 <div class="project-hero">
+  <div class="project-hero-bg"></div>
   <a href="index.html#projects" class="back-link">← All projects</a>
   <div class="project-hero-meta">
     <span class="project-hero-year">2025 – 2026</span>
