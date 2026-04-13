@@ -10,6 +10,64 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+  .project-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('WhatsApp Image 2026-04-14 at 1.21.52 AM.jpeg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  .project-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #f4f5f3 28%,
+      rgba(244, 245, 243, 0.60) 46%,
+      rgba(244, 245, 243, 0.08) 100%
+    );
+  }
+
+  .project-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      #f4f5f3 100%
+    );
+    z-index: 1;
+  }
+
+  .project-hero > *:not(.project-hero-bg) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-hero-tags .project-tag {
+    background: #ffffff;
+    border-color: var(--border);
+  }
+
+  @media (max-width: 760px) {
+    .project-hero-bg::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(244, 245, 243, 0.3) 0%,
+        #f4f5f3 70%
+      );
+    }
+  }
+
   .video-wrap {
     position: relative;
     width: 100%;
@@ -84,6 +142,7 @@
 </nav>
 
 <div class="project-hero">
+  <div class="project-hero-bg"></div>
   <a href="index.html#projects" class="back-link">← All projects</a>
   <div class="project-hero-meta">
     <span class="project-hero-year">2024</span>
