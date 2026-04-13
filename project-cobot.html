@@ -10,6 +10,54 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+  .project-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('WhatsApp Image 2026-04-14 at 1.13.49 AM.jpeg');
+    background-size: cover;
+    background-position: center center;
+    z-index: 0;
+  }
+
+  .project-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #f4f5f3 28%,
+      rgba(244, 245, 243, 0.60) 46%,
+      rgba(244, 245, 243, 0.08) 100%
+    );
+  }
+
+  .project-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      #f4f5f3 100%
+    );
+    z-index: 1;
+  }
+
+  .project-hero > *:not(.project-hero-bg) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .project-hero-tags .project-tag {
+    background: #ffffff;
+    border-color: var(--border);
+  }
+
   .content-row {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -106,6 +154,7 @@
 </nav>
 
 <div class="project-hero">
+  <div class="project-hero-bg"></div>
   <a href="index.html#projects" class="back-link">← All projects</a>
   <div class="project-hero-meta">
     <span class="project-hero-year">2025</span>
@@ -166,7 +215,7 @@
     </div>
     <div class="row-media">
       <img src="new chess board v2.png" alt="Player making a move against the chess cobot">
-      <p class="row-caption">Player making a move at the Tech Fest showcase</p>
+      <p class="row-caption">Player making a move at the project handover</p>
     </div>
   </div>
 
@@ -203,7 +252,7 @@
       <img src="Chess Robot for linked in.JPG" alt="MME Connect showcase presentation">
       <img src="WhatsApp Image 2026-04-14 at 1.00.09 AM.jpeg" alt="MME Connect showcase crowd">
     </div>
-    <p class="row-caption">MME Connect showcase</p>
+    <p class="row-caption">Project handover showcase</p>
   </div>
 
   <!-- Key skills -->
