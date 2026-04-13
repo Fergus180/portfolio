@@ -22,7 +22,8 @@
     margin-bottom: 0;
   }
 
-  .row-media img {
+  .row-media img,
+  .row-media .img-placeholder {
     width: 100%;
     border-radius: 3px;
     border: 1px solid var(--border);
@@ -124,14 +125,11 @@
   </div>
 </div>
 
-<!-- VIDEO EMBED — add src URL when available -->
-<!--
 <div class="hero-video-wrap">
   <div class="video-ratio">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Chess-Playing Cobot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/P-WKEhPWD0A" title="Chess-Playing Cobot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>
--->
 
 <div class="project-body">
 
@@ -143,17 +141,8 @@
       <p>I was responsible for the chess board, end effector, and chess clock housing and dead man's switch, and contributed to the computer vision, path planning, and state machine architecture.</p>
     </div>
     <div class="row-media">
-      <div class="img-grid-2-local">
-        <div class="img-placeholder" style="min-height:200px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span style="font-size:10px; opacity:0.6;">hardware closeup 1</span>
-        </div>
-        <div class="img-placeholder" style="min-height:200px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span style="font-size:10px; opacity:0.6;">hardware closeup 2</span>
-        </div>
-      </div>
-      <p class="row-caption">Custom hardware — end effector and chess board</p>
+      <img src="20250526_13093102.jpg" alt="Chess-playing cobot full system">
+      <p class="row-caption">UR3e picking up a chess piece during play</p>
     </div>
   </div>
 
@@ -176,11 +165,8 @@
       <p>The chess board and pieces were designed around robustness and high misalignment tolerance. Magnets embedded in the board, piece bases, and end effector tip allow the robot to acquire pieces reliably even with imprecise localisation or camera calibration error. Magnets in the board also snap human-placed pieces back into alignment, ensuring the robot can accurately acquire them on its next move.</p>
     </div>
     <div class="row-media">
-      <div class="img-placeholder" style="min-height:220px;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span style="font-size:10px; opacity:0.6;">chess board / end effector closeup</span>
-      </div>
-      <p class="row-caption">Magnetic chess board and custom end effector</p>
+      <img src="new chess board v2.png" alt="Player making a move against the chess cobot">
+      <p class="row-caption">Player making a move at the Tech Fest showcase</p>
     </div>
   </div>
 
@@ -191,11 +177,11 @@
       <p>The chess clock is the central human interface and electronics hub. It houses a Raspberry Pi running a touchscreen UI in ROS2, a chess clock-style dead man's switch for safe operation, and panel mount connectors for all mechatronics components. The Raspberry Pi acts as the ROS2 passthrough for the end effector, dead man's switch, and Intel RealSense camera. The UI lets players select AI difficulty, use our custom AI, restart games, queue moves, and view a live board state.</p>
     </div>
     <div class="row-media">
-      <div class="img-placeholder" style="min-height:220px;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span style="font-size:10px; opacity:0.6;">chess clock closeup</span>
+      <div class="stacked-imgs">
+        <img src="WhatsApp Image 2026-04-14 at 12.59.28 AM.jpeg" alt="Chess clock touchscreen interface">
+        <img src="chessclockexplodedview.gif" alt="Chess clock housing exploded CAD view">
       </div>
-      <p class="row-caption">Touchscreen chess clock with dead man's switch</p>
+      <p class="row-caption">Touchscreen chess clock and CAD exploded view of the housing</p>
     </div>
   </div>
 
@@ -203,35 +189,19 @@
   <div class="project-section reveal">
     <h2>Software contributions</h2>
     <p>Although my assigned role was hardware-focused, all mechanical tasks were completed well ahead of schedule to maximise programming time for the team. This gave me the opportunity to contribute heavily to troubleshooting across the path planning, computer vision, AI integration, and GUI elements of the project. The vision pipeline used Python to process ArUco tags via the Intel RealSense for board state detection and piece localisation, while MoveIt handled trajectory generation and collision detection for all robot moves.</p>
-    <p>See also: <a href="project-chess-ai.html" style="color: var(--accent);">Chess AI Engine project →</a></p>
   </div>
 
-  <!-- Tech Fest photos -->
+  <!-- Tech Fest awards -->
   <div class="reveal" style="margin-bottom: 3.5rem;">
-    <div class="img-grid-2-local">
-      <div class="img-placeholder" style="min-height:240px;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span style="font-size:10px; opacity:0.6;">Tech Fest showcase</span>
-      </div>
-      <div class="img-placeholder" style="min-height:240px;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span style="font-size:10px; opacity:0.6;">Tech Fest awards ceremony</span>
-      </div>
-    </div>
+    <img src="techfest.webp" alt="UTS Tech Fest Best Project Overall and People's Choice Award ceremony" style="width:100%; border-radius:3px; border:1px solid var(--border);">
     <p class="row-caption">UTS Tech Fest 2025 — Best Project Overall and People's Choice Award</p>
   </div>
 
-  <!-- MME Connect photos -->
+  <!-- MME Connect -->
   <div class="reveal" style="margin-bottom: 3.5rem;">
     <div class="img-grid-2-local">
-      <div class="img-placeholder" style="min-height:240px;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span style="font-size:10px; opacity:0.6;">MME Connect 1</span>
-      </div>
-      <div class="img-placeholder" style="min-height:240px;">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        <span style="font-size:10px; opacity:0.6;">MME Connect 2</span>
-      </div>
+      <img src="Chess Robot for linked in.JPG" alt="MME Connect showcase presentation">
+      <img src="WhatsApp Image 2026-04-14 at 1.00.09 AM.jpeg" alt="MME Connect showcase crowd">
     </div>
     <p class="row-caption">MME Connect showcase</p>
   </div>
