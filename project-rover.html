@@ -3,16 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UTS Rover Team — Your Name</title>
+<title>UTS Rover Team — Fergus Hudson</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .content-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-row .project-section {
+    margin-bottom: 0;
+  }
+
+  .content-row .project-section p + h2 {
+    margin-top: 2rem;
+  }
+
+  .row-media img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .stacked-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .img-grid-3-local {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .img-grid-3-local img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .row-caption {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 760px) {
+    .content-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .img-grid-3-local {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Your Name — Mechatronics</a>
+  <a href="index.html" class="nav-logo">Fergus Hudson — Mechatronics</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#projects">Projects</a></li>
@@ -24,68 +86,135 @@
 <div class="project-hero">
   <a href="index.html#projects" class="back-link">← All projects</a>
   <div class="project-hero-meta">
-    <span class="project-hero-year">2026</span>
-    <span class="project-hero-tag">Current · Team Lead</span>
+    <span class="project-hero-year">2025 – 2026</span>
+    <span class="project-hero-tag">Team Lead · Australian Rover Challenge</span>
   </div>
   <h1>UTS Rover Team Lead</h1>
-  <p class="project-hero-summary">Leading a multidisciplinary student engineering team at UTS in the design and build of a planetary rover for international university competition. Responsible for overall system architecture, technical direction, and team coordination across all subsystems.</p>
+  <p class="project-hero-summary">Led a 30+ person student team to design, build, and compete with a planetary rover at the Australian Rover Challenge in Adelaide. Won the Exterres Crater Lab Challenge, qualifying for the NASA-run Lunabotics competition in the US, and received the Stellar Improvement Award.</p>
   <div class="project-hero-tags">
-    <span class="project-tag">Robotics</span>
+    <span class="project-tag">Team leadership</span>
+    <span class="project-tag">Systems engineering</span>
     <span class="project-tag">ROS2</span>
     <span class="project-tag">Autonomous navigation</span>
-    <span class="project-tag">Team leadership</span>
-    <span class="project-tag">Systems architecture</span>
+    <span class="project-tag">Electronics design</span>
     <span class="project-tag">Embedded systems</span>
+    <span class="project-tag">Project management</span>
+    <span class="project-tag">Sponsorship</span>
   </div>
 </div>
 
 <div class="project-body">
 
-  <div class="project-section reveal">
-    <h2>Overview</h2>
-    <p>Add a description of the competition (e.g. University Rover Challenge / Australian Rover Challenge) and what the rover needs to accomplish. Describe the team size, your role, and the overall scope of the project.</p>
-    <p>Replace this placeholder text with the real project details once you're ready to publish.</p>
-  </div>
-
-  <div class="reveal">
-    <div class="img-grid-2">
-      <div class="img-placeholder" style="min-height:280px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add rover photo<br><span style="font-size:10px; opacity:0.6;">e.g. rover-full.jpg</span>
-      </div>
-      <div class="img-placeholder" style="min-height:280px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add team photo or CAD<br><span style="font-size:10px; opacity:0.6;">e.g. rover-team.jpg</span>
-      </div>
+  <!-- Overview + rover photos -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>The competition</h2>
+      <p>The UTS Rover Team is a student-led group that competes yearly in the Australian Rover Challenge in Adelaide. The competition runs across four days and is designed to simulate a range of tasks a rover would need to complete on a lunar mission: fine motor interaction, water extraction and prospecting, excavation and construction of lunar regolith, and autonomous path planning and navigation.</p>
     </div>
-    <p class="img-caption">UTS Rover Team — [Year] build</p>
+    <div class="row-media">
+      <div class="stacked-imgs">
+        <div class="img-grid-3-local">
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span style="font-size:10px; opacity:0.6;">rover-1.jpg</span>
+          </div>
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span style="font-size:10px; opacity:0.6;">rover-2.jpg</span>
+          </div>
+          <div class="img-placeholder" style="min-height:180px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            <span style="font-size:10px; opacity:0.6;">rover-3.jpg</span>
+          </div>
+        </div>
+      </div>
+      <p class="row-caption">UTS Rover at the Australian Rover Challenge, Adelaide 2026</p>
+    </div>
   </div>
 
-  <div class="project-section reveal">
-    <h2>System architecture</h2>
-    <p>Describe the major subsystems — chassis and suspension, drive system, arm/manipulator, science payload, electronics architecture, software stack. Explain what you personally designed vs. what you oversaw.</p>
-  </div>
-
-  <div class="specs-grid reveal">
-    <div class="spec-item"><div class="spec-label">Competition</div><div class="spec-value">Add competition name</div></div>
-    <div class="spec-item"><div class="spec-label">Team size</div><div class="spec-value">Add team size</div></div>
+  <!-- Specs -->
+  <div class="specs-grid reveal" style="margin-bottom: 3.5rem;">
+    <div class="spec-item"><div class="spec-label">Competition</div><div class="spec-value">Australian Rover Challenge</div></div>
+    <div class="spec-item"><div class="spec-label">Team size</div><div class="spec-value">30+ students</div></div>
     <div class="spec-item"><div class="spec-label">Software stack</div><div class="spec-value">ROS2</div></div>
-    <div class="spec-item"><div class="spec-label">Navigation</div><div class="spec-value">Add details</div></div>
-    <div class="spec-item"><div class="spec-label">Drive system</div><div class="spec-value">Add details</div></div>
-    <div class="spec-item"><div class="spec-label">Result</div><div class="spec-value">Add result</div></div>
+    <div class="spec-item"><div class="spec-label">External funding raised</div><div class="spec-value">$7k sponsorship + $2.6k subject grants</div></div>
+    <div class="spec-item"><div class="spec-label">Awards</div><div class="spec-value">Exterres Crater Lab Challenge + Stellar Improvement Award</div></div>
+    <div class="spec-item"><div class="spec-label">Qualification</div><div class="spec-value">NASA Lunabotics Competition, US</div></div>
   </div>
 
-  <div class="project-section reveal">
-    <h2>Your role</h2>
-    <p>Describe what you personally built, designed, or led. What were the biggest technical challenges? What decisions did you make as team lead that shaped the final system?</p>
-  </div>
-
-  <div class="reveal">
-    <div class="img-placeholder" style="min-height:320px;">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      Add rover in action / competition photo<br><span style="font-size:10px; opacity:0.6;">e.g. rover-competition.jpg</span>
+  <!-- 2025 member role + images -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Joining the team</h2>
+      <p>I joined the rover team in 2025, where I designed the accumulator (battery box and associated power electronics), assisted assembling the electronics, and designed support components including camera mounts and antenna mounts. My passion for robotics and competition was clear to the team lead at the time, who offered me the opportunity to lead the team.</p>
     </div>
-    <p class="img-caption">Rover at [competition name]</p>
+    <div class="row-media">
+      <div class="stacked-imgs">
+        <div class="img-placeholder" style="min-height:220px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">accumulator / electronics photo</span>
+        </div>
+      </div>
+      <p class="row-caption">Accumulator and power electronics designed in 2025</p>
+    </div>
+  </div>
+
+  <!-- Team lead role + images -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Leading the team</h2>
+      <p>Over the following year I led and managed a team of 30+ students to carefully refine and improve the rover, rebuilding the science unit, manipulator, excavation and construction unit, suspension geometry and design, wheels, electronics layout, and basestation, among many other refinements. The key focus was improving competition reliability and maintainability, with all development decisions prioritised based on competition point return. Design for Manufacturing and Design for Assembly was rigorously taught and enforced to ensure the competition readiness of the 2026 rover.</p>
+      <p>On top of the technical and team management responsibilities, I managed faculty relationships, secured funding, handled safety documentation, reported to faculty and deans, led procurement, planned and booked team travel, and led sponsorship outreach including appearances at the International Astronautical Congress and SXSW.</p>
+    </div>
+    <div class="row-media">
+      <div class="stacked-imgs">
+        <div class="img-placeholder" style="min-height:220px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">team photo / workshop</span>
+        </div>
+        <div class="img-placeholder" style="min-height:220px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">rover subsystem detail</span>
+        </div>
+      </div>
+      <p class="row-caption">Workshop and subsystem development, 2025 – 2026</p>
+    </div>
+  </div>
+
+  <!-- Funding + competition results -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Funding and results</h2>
+      <p>With no internal funding available during 2025, I pushed the team to run 7 projects in conjunction with UTS subjects, unlocking $2.6k of funding. Through the efforts of our project and outreach manager, we acquired a further $7k of external sponsorship. Despite continued efforts from the team and me, internal funding was not secured until roughly 45 days before competition. Contingency planning allowed us to descope and continue development through these financial setbacks.</p>
+      <p>At the 2026 competition, despite significant unforeseen issues with our communication systems, we performed excellently, winning the Exterres Crater Lab Challenge, which qualified us for the NASA-run Lunabotics competition in the US, and winning the Stellar Improvement Award.</p>
+    </div>
+    <div class="row-media">
+      <div class="stacked-imgs">
+        <div class="img-placeholder" style="min-height:220px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">competition / award photo</span>
+        </div>
+        <div class="img-placeholder" style="min-height:220px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">rover on course</span>
+        </div>
+      </div>
+      <p class="row-caption">Australian Rover Challenge 2026, Adelaide</p>
+    </div>
+  </div>
+
+  <!-- Key skills -->
+  <div class="project-section reveal">
+    <h2>Key skills</h2>
+    <ul>
+      <li>Technical leadership of a 30+ person multidisciplinary engineering team</li>
+      <li>Stakeholder management across faculty, sponsors, and external partners including appearances at the International Astronautical Congress and SXSW</li>
+      <li>Project management under significant financial constraints and a fixed competition deadline</li>
+      <li>Systems-level engineering across mechanical, electrical, and software domains</li>
+      <li>Strategic prioritisation of development effort based on competition point return</li>
+      <li>Risk management and contingency planning across the full competition program</li>
+      <li>Mentoring team members in DFM, DFA, and engineering best practice</li>
+    </ul>
   </div>
 
   <hr class="divider">
@@ -94,7 +223,7 @@
 </div>
 
 <footer>
-  <p>© 2026 Your Name</p>
+  <p>© 2026 Fergus Hudson</p>
   <p>GitHub Pages</p>
 </footer>
 
