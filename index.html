@@ -21,7 +21,53 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+<style>
+  /* Hero with background image */
+  .project-hero {
+    position: relative;
+    overflow: hidden;
+  }
 
+  .project-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('herophoto3.JPG');
+    background-size: cover;
+    background-position: center 30%;
+    z-index: 0;
+  }
+
+  /* Fade: transparent on the right, solid page colour on the left where text is */
+  .project-hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      #f4f5f3 38%,
+      rgba(244, 245, 243, 0.85) 55%,
+      rgba(244, 245, 243, 0.2) 100%
+    );
+  }
+
+  /* Also fade the bottom edge into the page */
+  .project-hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      #f4f5f3 100%
+    );
+    z-index: 1;
+  }
+
+  /* All hero content sits above the background */
+  .project-hero > *:not(.project-hero-bg) {
+    position: relative;
+    z-index: 2;
+  }
 <section class="hero" id="home">
   <div class="hero-tag">Mechatronics Engineering · UTS · Graduating Winter 2026</div>
   <h1>Hardware, software,<br>and everything<br><em>in between.</em></h1>
