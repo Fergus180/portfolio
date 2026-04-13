@@ -3,16 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chess-Playing Cobot — Your Name</title>
+<title>Chess-Playing Cobot — Fergus Hudson</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .content-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-row .project-section {
+    margin-bottom: 0;
+  }
+
+  .row-media img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .stacked-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .img-grid-2-local {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .img-grid-2-local img,
+  .img-grid-2-local .img-placeholder {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .row-caption {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
+  .hero-video-wrap {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    padding: 0 var(--page-pad, 2rem);
+  }
+
+  .hero-video-wrap .video-ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero-video-wrap .video-ratio iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  @media (max-width: 760px) {
+    .content-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .img-grid-2-local {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Your Name — Mechatronics</a>
+  <a href="index.html" class="nav-logo">Fergus Hudson — Mechatronics</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#projects">Projects</a></li>
@@ -25,73 +108,146 @@
   <a href="index.html#projects" class="back-link">← All projects</a>
   <div class="project-hero-meta">
     <span class="project-hero-year">2025</span>
-    <span class="project-hero-tag">Hardware · Robotics</span>
+    <span class="project-hero-tag">Robotics Studio 2 · Group Project</span>
   </div>
   <h1>Chess-Playing Cobot</h1>
-  <p class="project-hero-summary">Programmed a collaborative robot arm to physically play chess against a human opponent. The system integrates computer vision for live board state detection, motion planning for safe piece manipulation, and real-time communication with a custom chess AI engine.</p>
+  <p class="project-hero-summary">Built a chess-playing collaborative robot in a group of four using the Universal Robots UR3e. The system features a custom end effector and chess board, a touchscreen chess clock with dead man's switch, ArUco tag vision, MoveIt path planning, and a full Gazebo simulation. Won Best Project Overall and People's Choice at UTS Tech Fest.</p>
   <div class="project-hero-tags">
-    <span class="project-tag">Collaborative robot</span>
+    <span class="project-tag">Universal Robots UR3e</span>
+    <span class="project-tag">ROS2</span>
+    <span class="project-tag">MoveIt</span>
     <span class="project-tag">Computer vision</span>
-    <span class="project-tag">Path planning</span>
-    <span class="project-tag">ROS</span>
+    <span class="project-tag">End effector design</span>
+    <span class="project-tag">Embedded systems</span>
     <span class="project-tag">Python</span>
-    <span class="project-tag">Human-robot interaction</span>
+    <span class="project-tag">Gazebo</span>
   </div>
 </div>
 
+<!-- VIDEO EMBED — add src URL when available -->
+<!--
+<div class="hero-video-wrap">
+  <div class="video-ratio">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Chess-Playing Cobot" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+-->
+
 <div class="project-body">
 
-  <div class="project-section reveal">
-    <h2>Overview</h2>
-    <p>Describe the project context — what cobot platform did you use, what was the goal, and what made this technically interesting? Explain how the physical and software sides came together.</p>
-    <p>Replace this placeholder text with real project details when you're ready to publish.</p>
-  </div>
-
-  <div class="reveal">
-    <div class="img-grid-2">
-      <div class="img-placeholder" style="min-height:280px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add cobot photo<br><span style="font-size:10px; opacity:0.6;">e.g. cobot-chess-board.jpg</span>
-      </div>
-      <div class="img-placeholder" style="min-height:280px;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-        Add vision system / setup photo<br><span style="font-size:10px; opacity:0.6;">e.g. cobot-vision.jpg</span>
-      </div>
+  <!-- Overview -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Overview</h2>
+      <p>A group of four students built a complete chess-playing cobot for Robotics Studio 2. The UR3e arm picks and places pieces based on moves from an integrated chess AI, with a custom end effector, purpose-built chess board, and a touchscreen chess clock as the main human interface. A full Gazebo simulation was developed alongside the physical system.</p>
+      <p>I was responsible for the chess board, end effector, and chess clock housing and dead man's switch, and contributed to the computer vision, path planning, and state machine architecture.</p>
     </div>
-    <p class="img-caption">Cobot arm playing chess — [Add caption]</p>
+    <div class="row-media">
+      <div class="img-grid-2-local">
+        <div class="img-placeholder" style="min-height:200px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">hardware closeup 1</span>
+        </div>
+        <div class="img-placeholder" style="min-height:200px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size:10px; opacity:0.6;">hardware closeup 2</span>
+        </div>
+      </div>
+      <p class="row-caption">Custom hardware — end effector and chess board</p>
+    </div>
   </div>
 
+  <!-- Specs -->
+  <div class="specs-grid reveal" style="margin-bottom: 3.5rem;">
+    <div class="spec-item"><div class="spec-label">Robot platform</div><div class="spec-value">Universal Robots UR3e</div></div>
+    <div class="spec-item"><div class="spec-label">Framework</div><div class="spec-value">ROS2</div></div>
+    <div class="spec-item"><div class="spec-label">Path planning</div><div class="spec-value">MoveIt (collision detection + move generation)</div></div>
+    <div class="spec-item"><div class="spec-label">Vision</div><div class="spec-value">Python, ArUco tags, Intel RealSense</div></div>
+    <div class="spec-item"><div class="spec-label">Interface</div><div class="spec-value">Raspberry Pi touchscreen</div></div>
+    <div class="spec-item"><div class="spec-label">Simulation</div><div class="spec-value">Gazebo</div></div>
+    <div class="spec-item"><div class="spec-label">AI</div><div class="spec-value">Custom chess engine (integrated)</div></div>
+    <div class="spec-item"><div class="spec-label">Awards</div><div class="spec-value">Best Project Overall + People's Choice, UTS Tech Fest</div></div>
+  </div>
+
+  <!-- Chess board and end effector -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Chess board and end effector</h2>
+      <p>The chess board and pieces were designed around robustness and high misalignment tolerance. Magnets embedded in the board, piece bases, and end effector tip allow the robot to acquire pieces reliably even with imprecise localisation or camera calibration error. Magnets in the board also snap human-placed pieces back into alignment, ensuring the robot can accurately acquire them on its next move.</p>
+    </div>
+    <div class="row-media">
+      <div class="img-placeholder" style="min-height:220px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span style="font-size:10px; opacity:0.6;">chess board / end effector closeup</span>
+      </div>
+      <p class="row-caption">Magnetic chess board and custom end effector</p>
+    </div>
+  </div>
+
+  <!-- Chess clock -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Chess clock and interface</h2>
+      <p>The chess clock is the central human interface and electronics hub. It houses a Raspberry Pi running a touchscreen UI in ROS2, a chess clock-style dead man's switch for safe operation, and panel mount connectors for all mechatronics components. The Raspberry Pi acts as the ROS2 passthrough for the end effector, dead man's switch, and Intel RealSense camera. The UI lets players select AI difficulty, use our custom AI, restart games, queue moves, and view a live board state.</p>
+    </div>
+    <div class="row-media">
+      <div class="img-placeholder" style="min-height:220px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span style="font-size:10px; opacity:0.6;">chess clock closeup</span>
+      </div>
+      <p class="row-caption">Touchscreen chess clock with dead man's switch</p>
+    </div>
+  </div>
+
+  <!-- Software contributions -->
   <div class="project-section reveal">
-    <h2>Computer vision pipeline</h2>
-    <p>Describe how the board state was detected — camera setup, what library or approach you used (OpenCV, etc.), how pieces were identified and tracked, and what made board detection challenging (lighting, piece occlusion, etc.).</p>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Motion planning &amp; execution</h2>
-    <p>Describe how move commands from the chess engine were converted into robot trajectories. How did you handle piece pickup, placement, and capture? What safety considerations were needed for operating around a human player?</p>
-  </div>
-
-  <div class="specs-grid reveal">
-    <div class="spec-item"><div class="spec-label">Robot platform</div><div class="spec-value">Add cobot model</div></div>
-    <div class="spec-item"><div class="spec-label">Framework</div><div class="spec-value">ROS</div></div>
-    <div class="spec-item"><div class="spec-label">Vision library</div><div class="spec-value">Add details</div></div>
-    <div class="spec-item"><div class="spec-label">Languages</div><div class="spec-value">Python / C++</div></div>
-    <div class="spec-item"><div class="spec-label">AI interface</div><div class="spec-value">Custom chess engine</div></div>
-    <div class="spec-item"><div class="spec-label">End effector</div><div class="spec-value">Add details</div></div>
-  </div>
-
-  <div class="project-section reveal">
-    <h2>Integration with chess AI</h2>
-    <p>Describe the interface between the cobot controller and the chess AI engine. How did the two systems communicate? What happened when the human made a move — how did the system detect it and trigger the AI response?</p>
+    <h2>Software contributions</h2>
+    <p>Although my assigned role was hardware-focused, all mechanical tasks were completed well ahead of schedule to maximise programming time for the team. This gave me the opportunity to contribute heavily to troubleshooting across the path planning, computer vision, AI integration, and GUI elements of the project. The vision pipeline used Python to process ArUco tags via the Intel RealSense for board state detection and piece localisation, while MoveIt handled trajectory generation and collision detection for all robot moves.</p>
     <p>See also: <a href="project-chess-ai.html" style="color: var(--accent);">Chess AI Engine project →</a></p>
   </div>
 
-  <div class="reveal">
-    <div class="img-placeholder" style="min-height:300px;">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-      Add system demo photo or diagram<br><span style="font-size:10px; opacity:0.6;">e.g. cobot-demo.jpg</span>
+  <!-- Tech Fest photos -->
+  <div class="reveal" style="margin-bottom: 3.5rem;">
+    <div class="img-grid-2-local">
+      <div class="img-placeholder" style="min-height:240px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span style="font-size:10px; opacity:0.6;">Tech Fest showcase</span>
+      </div>
+      <div class="img-placeholder" style="min-height:240px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span style="font-size:10px; opacity:0.6;">Tech Fest awards ceremony</span>
+      </div>
     </div>
-    <p class="img-caption">Full system in operation — human vs. cobot</p>
+    <p class="row-caption">UTS Tech Fest 2025 — Best Project Overall and People's Choice Award</p>
+  </div>
+
+  <!-- MME Connect photos -->
+  <div class="reveal" style="margin-bottom: 3.5rem;">
+    <div class="img-grid-2-local">
+      <div class="img-placeholder" style="min-height:240px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span style="font-size:10px; opacity:0.6;">MME Connect 1</span>
+      </div>
+      <div class="img-placeholder" style="min-height:240px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <span style="font-size:10px; opacity:0.6;">MME Connect 2</span>
+      </div>
+    </div>
+    <p class="row-caption">MME Connect showcase</p>
+  </div>
+
+  <!-- Key skills -->
+  <div class="project-section reveal">
+    <h2>Key skills</h2>
+    <ul>
+      <li>Custom end effector design for reliable magnetic pick-and-place</li>
+      <li>Tolerance-aware mechanical design to handle localisation and calibration uncertainty</li>
+      <li>ROS2 system integration across multiple hardware components</li>
+      <li>Embedded UI development on Raspberry Pi with ROS2</li>
+      <li>Computer vision using Python and ArUco tags with Intel RealSense</li>
+      <li>Motion planning and collision detection with MoveIt</li>
+      <li>Multidisciplinary group collaboration under a fixed semester deadline</li>
+    </ul>
   </div>
 
   <hr class="divider">
@@ -100,7 +256,7 @@
 </div>
 
 <footer>
-  <p>© 2026 Your Name</p>
+  <p>© 2026 Fergus Hudson</p>
   <p>GitHub Pages</p>
 </footer>
 
