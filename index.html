@@ -65,6 +65,9 @@
   /* ── 2-column projects grid with right-side hero images ── */
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    background: none;
+    border: none;
   }
   .project-card.featured {
     grid-column: span 1;
@@ -77,6 +80,7 @@
     overflow: hidden;
     min-height: 210px;
     --card-bg: #f9faf8;
+    border: 1px solid var(--border);
   }
   .project-card:hover {
     --card-bg: #fff;
@@ -219,7 +223,7 @@
         </div>
         <span class="card-cta">View project →</span>
       </div>
-      <div class="card-hero-img" style="background-image: url('roverwithmanip.JPG');"></div>
+      <div class="card-hero-img" style="background-image: url('PXL_20260210_082533418.MP.jpg'); background-position: right center;"></div>
     </a>
 
     <a href="project-capstone.html" class="project-card reveal">
