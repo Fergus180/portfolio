@@ -61,6 +61,57 @@
       );
     }
   }
+
+  /* ── 2-column projects grid with right-side hero images ── */
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .project-card.featured {
+    grid-column: span 1;
+  }
+  .project-card.featured h3 {
+    font-size: 22px;
+  }
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 210px;
+    --card-bg: #f9faf8;
+  }
+  .project-card:hover {
+    --card-bg: #fff;
+  }
+  .card-content {
+    position: relative;
+    z-index: 1;
+  }
+  .project-card.has-img .card-content {
+    max-width: 58%;
+  }
+  .card-hero-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 46%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  .card-hero-img::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--card-bg) 0%, transparent 68%);
+  }
+  @media (max-width: 960px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.has-img .card-content { max-width: 100%; }
+    .card-hero-img { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -143,69 +194,86 @@
   <h2 class="section-title">Selected Projects</h2>
   <div class="projects-grid">
 
-    <a href="project-rover.html" class="project-card featured reveal">
-      <div class="project-year"><span>2026</span><span class="tag">Current · Team Lead</span></div>
-      <h3>UTS Rover Team Lead</h3>
-      <p>Leading a multidisciplinary student team designing and building a lunar rover for international university competition covering mechanical, electrical, and software subsystems.</p>
-      <div class="project-tags">
-        <span class="project-tag">Robotics</span><span class="project-tag">ROS2</span>
-        <span class="project-tag">Autonomous navigation</span><span class="project-tag">Team leadership</span>
+    <a href="project-rover.html" class="project-card has-img reveal">
+      <div class="card-content">
+        <div class="project-year"><span>2026</span><span class="tag">Current · Team Lead</span></div>
+        <h3>UTS Rover Team Lead</h3>
+        <p>Led a 30+ person student team to design, build, and compete with a planetary rover at the Australian Rover Challenge. Won the Exterres Crater Lab Challenge and qualified for NASA Lunabotics.</p>
+        <div class="project-tags">
+          <span class="project-tag">ROS2</span><span class="project-tag">Autonomous navigation</span>
+          <span class="project-tag">Team leadership</span><span class="project-tag">Systems engineering</span>
+        </div>
+        <span class="card-cta">View project →</span>
       </div>
-      <span class="card-cta">View project →</span>
+      <div class="card-hero-img" style="background-image: url('teamphoto.JPG'); background-position: center 20%;"></div>
+    </a>
+
+    <a href="project-excavation.html" class="project-card has-img reveal">
+      <div class="card-content">
+        <div class="project-year"><span>2026</span><span class="tag">Rover Payload</span></div>
+        <h3>Rover Excavation &amp; Construction Payload</h3>
+        <p>Designed and built the excavation and construction payload for the UTS Rover, responsible for digging and depositing regolith for the Lunabotics-qualifying Exterres Crater Lab challenge.</p>
+        <div class="project-tags">
+          <span class="project-tag">SolidWorks</span><span class="project-tag">Mechanism design</span>
+          <span class="project-tag">Embedded systems</span>
+        </div>
+        <span class="card-cta">View project →</span>
+      </div>
+      <div class="card-hero-img" style="background-image: url('roverwithmanip.JPG');"></div>
     </a>
 
     <a href="project-capstone.html" class="project-card reveal">
-      <div class="project-year"><span>2025</span><span class="tag">Capstone</span></div>
-      <h3>Final Year Capstone</h3>
-      <p>Year-long industry-partnered project partnered with Contactile devloping a rotational slip detection rig, covering the full engineering lifecycle from requirements, design, build, testing, and documentation.</p>
-      <div class="project-tags">
-        <span class="project-tag">Systems design</span><span class="project-tag">Prototyping</span>
+      <div class="card-content">
+        <div class="project-year"><span>2025</span><span class="tag">Capstone</span></div>
+        <h3>Final Year Capstone</h3>
+        <p>Year-long industry-partnered project with Contactile developing a rotational slip detection rig, covering the full engineering lifecycle from requirements, design, build, testing, and documentation.</p>
+        <div class="project-tags">
+          <span class="project-tag">Systems design</span><span class="project-tag">Prototyping</span>
+        </div>
+        <span class="card-cta">View project →</span>
       </div>
-      <span class="card-cta">View project →</span>
     </a>
 
-    <a href="project-cobot.html" class="project-card reveal">
-      <div class="project-year"><span>2025</span><span class="tag">Hardware</span></div>
-      <h3>Chess-Playing Cobot</h3>
-      <p>Programmed a collaborative robot arm to physically play chess using computer vision for board detection, path planning for piece manipulation, live AI integration.</p>
-      <div class="project-tags">
-        <span class="project-tag">Cobot</span><span class="project-tag">Computer vision</span>
-        <span class="project-tag">Path planning</span>
+    <a href="project-cobot.html" class="project-card has-img reveal">
+      <div class="card-content">
+        <div class="project-year"><span>2025</span><span class="tag">Hardware · Best Project Overall</span></div>
+        <h3>Chess-Playing Cobot</h3>
+        <p>Built a chess-playing UR3e cobot with custom end effector, magnetic chess board, touchscreen chess clock, ArUco tag vision, and MoveIt path planning. Won Best Project Overall and People's Choice at UTS Tech Fest.</p>
+        <div class="project-tags">
+          <span class="project-tag">ROS2</span><span class="project-tag">MoveIt</span>
+          <span class="project-tag">Computer vision</span>
+        </div>
+        <span class="card-cta">View project →</span>
       </div>
-      <span class="card-cta">View project →</span>
+      <div class="card-hero-img" style="background-image: url('WhatsApp Image 2026-04-14 at 1.13.49 AM.jpeg');"></div>
     </a>
 
-    <a href="project-chess-ai.html" class="project-card reveal">
-      <div class="project-year"><span>2025</span><span class="tag">Software</span></div>
-      <h3>Chess AI Engine</h3>
-      <p>Chess engine built with classical search and machine learning evaluation, designed for low-latency real-time play and tight integration with the cobot.</p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span><span class="project-tag">Minimax / alpha-beta</span>
-        <span class="project-tag">ML evaluation</span>
+    <a href="project-warman.html" class="project-card has-img reveal">
+      <div class="card-content">
+        <div class="project-year"><span>2024</span><span class="tag">Competition · International</span></div>
+        <h3>Warman Design &amp; Build</h3>
+        <p>Led a team of three at the international Warman finals representing UTS. Designed the chassis, worm-drive gearbox, carbon fibre arm, and electronics board.</p>
+        <div class="project-tags">
+          <span class="project-tag">ESP32 / C++</span><span class="project-tag">Cascaded PID</span>
+          <span class="project-tag">SolidWorks</span>
+        </div>
+        <span class="card-cta">View project →</span>
       </div>
-      <span class="card-cta">View project →</span>
+      <div class="card-hero-img" style="background-image: url('WARMAN1.jpg'); background-position: center top;"></div>
     </a>
 
-    <a href="project-warman.html" class="project-card reveal">
-      <div class="project-year"><span>2024</span><span class="tag">Competition · International</span></div>
-      <h3>Warman Design &amp; Build</h3>
-      <p>Led a team of three at the international Warman finals representing UTS. Designed the chassis, worm-drive gearbox, carbon fibre arm, and electronics board.</p>
-      <div class="project-tags">
-        <span class="project-tag">ESP32 / C++</span><span class="project-tag">Cascaded PID</span>
-        <span class="project-tag">SolidWorks</span>
+    <a href="project-frc.html" class="project-card has-img reveal">
+      <div class="card-content">
+        <div class="project-year"><span>2016 – 2019</span><span class="tag">FIRST Robotics</span></div>
+        <h3>FRC FIRST Robotics</h3>
+        <p>Four years building 54kg competition robots. Drivetrain sub-team lead from 2017. International championship division finalists. 12 regional blue banners.</p>
+        <div class="project-tags">
+          <span class="project-tag">SolidWorks</span><span class="project-tag">CNC machining</span>
+          <span class="project-tag">Drivetrain design</span>
+        </div>
+        <span class="card-cta">View project →</span>
       </div>
-      <span class="card-cta">View project →</span>
-    </a>
-
-    <a href="project-frc.html" class="project-card reveal">
-      <div class="project-year"><span>2016 – 2019</span><span class="tag">FIRST Robotics</span></div>
-      <h3>FRC FIRST Robotics</h3>
-      <p>Four years building 54kg competition robots. Drivetrain sub-team lead from 2017. International championship division finalists. 12 regional blue banners.</p>
-      <div class="project-tags">
-        <span class="project-tag">SolidWorks</span><span class="project-tag">CNC machining</span>
-        <span class="project-tag">Drivetrain design</span>
-      </div>
-      <span class="card-cta">View project →</span>
+      <div class="card-hero-img" style="background-image: url('2017FRCChamps.jpg'); background-position: center 30%;"></div>
     </a>
 
   </div>
