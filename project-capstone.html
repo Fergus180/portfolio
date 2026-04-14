@@ -144,7 +144,7 @@
   <div class="content-row reveal">
     <div class="project-section">
       <h2>Summary</h2>
-      <p>Add project summary here — context, motivation, and what was achieved.</p>
+      <p>I completed my Capstone/thesis in partnership with Contactile, a startup in Eveleigh designing tactile sensors that can detect forces and torques in all axes. This technology is being used to give robots a sense of touch. For robots to be able to apply a sense of touch they need the ability to detect and pre-empt slip. Contactile is currently able to accomplish this for translational slip with a traditional deterministic algorithm, however they struggle to detect rotational slip. Current research has shown early promise for rotational slip, but results have been limited by improvised hardware and poor camera selection. As part of a group of 2 members I designed and built a rotational slip detection rig which collects ground truth data about slip events detected via computer vision, combined with tactile sensor data under a range of movement conditions in order to train AI models to be able to detect slip events with only the tactile sensor data.</p>
     </div>
     <div class="row-media">
       <img src="capstoneshowcase.jpeg" alt="Capstone project showcase presentation">
@@ -166,7 +166,7 @@
   <div class="content-row reveal">
     <div class="project-section">
       <h2>Rig design</h2>
-      <p>Add rig design description here — mechanical design decisions, key components, and design challenges.</p>
+      <p>I was responsible for the mechanical and electrical design, manufacture, and assembly of the rig, as well as working with the 6 DoF force torque sensor, including mounting calibration and data acquisition via the embedded Teensy 4.1. This project had a very different focus than many of my previous projects, with Contactile emphasising that rigidity was of the utmost importance. Previous attempts at the same project within the company heavily relied on 3D printing for structural elements and suffered from flex under load that resulted in off axis sensor loading. This experience informed my design approach and to ensure a satisfactory result, FEA simulations of deflection were used to iteratively improve the design. Once manufactured physical deflection testing using a test indicator and onboard force torque sensor validated these simulation results and ensured our rig was meeting or exceeding the requirements as discussed and approved by our client.</p>
     </div>
     <div class="row-media">
       <div class="stacked-imgs">
@@ -180,14 +180,14 @@
   <!-- Documentation -->
   <div class="project-section reveal">
     <h2>Documentation</h2>
-    <p>Add documentation description here — deliverables produced, standards followed, and any key documentation outcomes.</p>
+    <p>Another key focus of this project was documentation, including electrical schematics, Teensy Pinouts, CAD files and drawings, BoMs with all components down to the smallest fastener, and a keen focus on user friendliness in the firmware and associated GUI software used to operate the rig. This was another requirement outlined by the client, as the project would be handed over to interns within the company to continue collecting data and training AI models and a well-documented project reduces training overhead for the company. </p>
   </div>
 
   <!-- Results -->
   <div class="content-row reveal">
     <div class="project-section">
       <h2>Results</h2>
-      <p>Add results description here — what the rig successfully measured, sensor performance, and key findings.</p>
+      <p>The project was delivered to Contactile complete and on time, the system was able to detect slip, collect and collate all data from the sources required to train an effective model with strong predictive accuracy.</p>
     </div>
     <div class="row-media">
       <img src="capstoneSlipResults.png" alt="Rotational slip event sensor data and force plots">
