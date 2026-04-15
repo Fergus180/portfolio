@@ -58,7 +58,84 @@
     border-color: var(--border);
   }
 
+  .content-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3.5rem;
+  }
+
+  .content-row .project-section {
+    margin-bottom: 0;
+  }
+
+  .row-media img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .stacked-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .img-grid-2-local {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .img-grid-2-local img {
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .row-caption {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+
+  .hero-video-wrap {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    padding: 0 var(--page-pad, 2rem);
+  }
+
+  .hero-video-wrap .video-ratio {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero-video-wrap .video-ratio iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   @media (max-width: 760px) {
+    .content-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .img-grid-2-local {
+      grid-template-columns: 1fr 1fr;
+    }
     .project-hero-bg::after {
       background: linear-gradient(
         to bottom,
@@ -86,24 +163,93 @@
   <a href="index.html#projects" class="back-link">← All projects</a>
   <div class="project-hero-meta">
     <span class="project-hero-year">2026</span>
-    <span class="project-hero-tag">UTS Rover Team · Payload</span>
+    <span class="project-hero-tag">UTS Rover Team · Payload Design</span>
   </div>
   <h1>Rover Excavation &amp; Construction Payload</h1>
-  <p class="project-hero-summary">Designed and built the excavation and construction payload for the UTS Rover, responsible for digging and depositing regolith for the Exterres Crater Lab challenge at the Australian Rover Challenge. The payload contributed to winning the Exterres Crater Lab Challenge and qualifying for the NASA Lunabotics competition.</p>
+  <p class="project-hero-summary">Led a five-member group to design, manufacture, and test a new excavation and construction payload for the UTS Rover Team. The payload moved more regolith than competition organisers had ever recorded in a single task, contributing to winning the Exterres Crater Lab Challenge and qualifying for NASA Lunabotics.</p>
   <div class="project-hero-tags">
     <span class="project-tag">SolidWorks</span>
     <span class="project-tag">Mechanism design</span>
+    <span class="project-tag">microROS</span>
+    <span class="project-tag">DC motor control</span>
     <span class="project-tag">3D printing / DFM</span>
-    <span class="project-tag">Embedded systems</span>
-    <span class="project-tag">ROS2</span>
+    <span class="project-tag">Team lead</span>
+    <span class="project-tag">Procurement</span>
+  </div>
+</div>
+
+<div class="hero-video-wrap">
+  <div class="video-ratio">
+    <iframe src="https://www.youtube.com/embed/irs3mUznh08" title="UTS Rover Excavation and Construction Payload" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   </div>
 </div>
 
 <div class="project-body">
 
+  <!-- Overview -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Overview</h2>
+      <p>As part of the Design for Mechanical and Mechatronic Systems subject at UTS, I led a five-member group tasked with designing a new excavation and construction payload for the UTS Rover Team. We were responsible for scoping, designing, manufacturing, and testing a fully working mechatronic system. My responsibilities included the linear actuator-based 2-DoF arm, the baseplate, a motor mount and belt system for the rock claw, procurement, liaising with manufacturers, and managing the team.</p>
+      <p>The main priority was delivering a simple, complete, and tested subsystem rather than over-scoping and delivering something unfinished. The final design used just two linear actuators and one DC gearmotor.</p>
+    </div>
+    <div class="row-media">
+      <img src="excavation before task.JPG" alt="Excavation payload on rover before competition task">
+      <p class="row-caption">Excavation and construction payload at the Australian Rover Challenge, Adelaide 2026</p>
+    </div>
+  </div>
+
+  <!-- Specs -->
+  <div class="specs-grid reveal" style="margin-bottom: 3.5rem;">
+    <div class="spec-item"><div class="spec-label">Subject</div><div class="spec-value">Design for Mechanical and Mechatronic Systems</div></div>
+    <div class="spec-item"><div class="spec-label">Team size</div><div class="spec-value">5 members</div></div>
+    <div class="spec-item"><div class="spec-label">Arm DoF</div><div class="spec-value">2 (linear actuator driven)</div></div>
+    <div class="spec-item"><div class="spec-label">Actuators</div><div class="spec-value">2x linear actuators, 1x DC gearmotor</div></div>
+    <div class="spec-item"><div class="spec-label">Communication</div><div class="spec-value">microROS over USB</div></div>
+    <div class="spec-item"><div class="spec-label">Motor control</div><div class="spec-value">PWM, 3x DC motor drivers</div></div>
+    <div class="spec-item"><div class="spec-label">Vision</div><div class="spec-value">Fisheye USB webcam in bucket</div></div>
+    <div class="spec-item"><div class="spec-label">Result</div><div class="spec-value">Most regolith moved in competition history</div></div>
+  </div>
+
+  <!-- Design -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Design</h2>
+      <p>The key differentiator in our design was the rock grabber — a polycarbonate claw capable of lifting rocks up to 10kg into the bucket and holding them in place. This made the rock collection portion of the task significantly faster, freeing up more time for berm construction.</p>
+      <p>The mechatronic implementation was intentionally simple but effective, using microROS over USB and PWM control of three DC motor drivers. Situational awareness was provided by a fisheye USB webcam mounted inside the bucket, giving operators maximum field of view of the collection zone.</p>
+    </div>
+    <div class="row-media">
+      <img src="excavationCADwithLabels.png" alt="Labelled CAD render of the excavation and construction payload">
+      <p class="row-caption">Labelled CAD assembly — 2-DoF arm, rock grabber, and bucket</p>
+    </div>
+  </div>
+
+  <!-- Competition results -->
+  <div class="content-row reveal">
+    <div class="project-section">
+      <h2>Results</h2>
+      <p>At the 2026 Australian Rover Challenge, the payload performed as designed. The rock grabber allowed the team to collect rocks and regolith faster than any previous team attempt, moving a record amount of regolith in a single run. This contributed directly to winning the Exterres Crater Lab Challenge and qualifying for the NASA Lunabotics competition in the US.</p>
+    </div>
+    <div class="row-media">
+      <div class="img-grid-2-local">
+        <img src="excavationpickinguprockintask.JPG" alt="Rover picking up a rock during the excavation task">
+        <img src="excavationdroppingregolithintask.JPG" alt="Rover dropping regolith during the excavation task">
+      </div>
+      <p class="row-caption">Rock collection and regolith deposit during the Exterres Crater Lab Challenge, Adelaide 2026</p>
+    </div>
+  </div>
+
+  <!-- Key skills -->
   <div class="project-section reveal">
-    <h2>Coming soon</h2>
-    <p>Full project writeup coming soon.</p>
+    <h2>Key skills</h2>
+    <ul>
+      <li>Team leadership and project management across a five-member multidisciplinary group</li>
+      <li>Mechanism design for a linear actuator-driven 2-DoF arm and belt-driven rock claw</li>
+      <li>Design for manufacturing and assembly with a strong focus on scope management and delivery</li>
+      <li>microROS integration and PWM-based DC motor control</li>
+      <li>Procurement and liaison with external manufacturers</li>
+      <li>End-to-end subsystem testing and commissioning under a competition deadline</li>
+    </ul>
   </div>
 
   <hr class="divider">
